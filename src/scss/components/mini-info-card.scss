@@ -1,0 +1,34 @@
+.mini-info-card {
+    border-radius: 1.6rem;
+    background-color: $light;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 132px;
+    padding: 10px;
+    width: 100%;
+    margin-top: $gap;
+
+
+    &__container {
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    &__heading {
+        display: inline-block;
+        @include h2;
+    }
+
+    &__info {
+        @include h4;
+        text-align: center;
+    }
+
+
+
+
+}

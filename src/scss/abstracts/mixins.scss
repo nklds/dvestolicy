@@ -1,0 +1,15 @@
+@mixin has-shadow {
+    box-shadow: 0 4px 21px #F65A44;
+}
+
+@mixin beautyTransition ($prop: all) {
+    transition: #{$prop} 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    ;
+}
+
+@mixin fading($delay: 0) {
+    @include beautyTransition(opacity);
+    transition-delay: #{$delay};
+    transition-duration: 1s;
+    opacity: 0;
+}

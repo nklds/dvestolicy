@@ -1,0 +1,116 @@
+@mixin containerPadding {
+    padding: 3.2rem 1.6rem 8rem 1.6rem;
+
+    @media screen and (min-width: $md) {
+        padding: 3.2rem 4.8rem 8rem 4.8rem;
+    }
+
+    @media screen and (min-width: $xl) {
+        padding: 3.2rem 10.8rem 8rem 10.8rem;
+    }
+}
+
+.card-section {
+    display: flex;
+    flex-direction: column;
+    max-width: $xl;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+
+    &__heading {
+        max-width: 60rem;
+        margin-bottom: 3.2rem;
+
+        @include fading;
+
+    }
+
+    &__left {
+        @include beautyTransition;
+        @include fading(0.2s);
+
+        &:nth-child(2) {
+            @include fading(0.4s);
+        }
+
+        &:nth-child(3) {
+
+            @include fading(0.6s);
+        }
+    }
+
+    &__right {
+
+        @include fading(0.4s)
+    }
+
+    &__phone {
+        @include h4;
+        text-decoration: none;
+        transition: all 0.3s ease-out;
+        color: $red;
+
+        &:hover {
+            text-decoration: underline;
+            /*@include has-shadow;*/
+        }
+    }
+
+    &__image {
+        min-height: 42.4rem;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        overflow: hidden;
+        @include containerPadding;
+
+    }
+
+    &__img {
+        object-fit: cover;
+        // width: auto;
+        // height: 424px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    &__text-info {
+        @include containerPadding;
+
+    }
+
+
+
+    &__button {
+        @include button;
+
+        min-width: 39.2rem;
+        //z-index: 1;
+        @include fading(0.3s);
+
+        @media screen and (max-width: $md) {
+            font-size: 1.6rem;
+            line-height: 2.8rem;
+            min-width: 100%;
+        }
+
+
+    }
+
+
+
+
+}

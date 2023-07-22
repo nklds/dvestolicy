@@ -1,0 +1,22 @@
+@mixin button {
+    background-color: $red;
+    color: white;
+    border-radius: 6.2rem;
+    min-height: 7.2rem;
+    display: inline-block;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    @include h4;
+
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+
+
+    &:hover {
+        color: $black;
+        @include has-shadow;
+    }
+
+
+}

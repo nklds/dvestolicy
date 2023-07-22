@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+    traefik-public:
+        external: true
+
+services:
+    nginx:
+        image: ${DockerRegistryURL}/dve-stolicy:${BranchName}-${BuildTimestamp}-${HashCommit}
+        build:
+          context: .
+          dockerfile: Dockerfile
+          args:
+            - DOMAIN=${DOMAIN}
+        networks:
+            - traefik-public
+        deploy:
+          labels:
+            - traefik.enable=true
+            - traefik.constraint-label=traefik-public
+            - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+            - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
+            - traefik.http.middlewares.www-to-non-www-redirect.redirectregex.regex=^(https?://)www.(.*)$$
+            - traefik.http.middlewares.www-to-non-www-redirect.redirectregex.replacement=$${1}$${2}
+            - traefik.http.routers.dve-stolicy-http.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)
+            - traefik.http.routers.dve-stolicy-http.entrypoints=http
+            - traefik.http.routers.dve-stolicy-http.middlewares=https-redirect
+            - traefik.http.routers.dve-stolicy-https.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)
+            - traefik.http.routers.dve-stolicy-https.middlewares=www-to-non-www-redirect
+            - traefik.http.routers.dve-stolicy-https.entrypoints=https
+            - traefik.http.routers.dve-stolicy-https.tls=true
+            - traefik.http.routers.dve-stolicy-https.tls.certresolver=le
+            - traefik.http.services.dve-stolicy.loadbalancer.server.port=8099
+          replicas: 1
+          restart_policy:
+            condition: on-failure
+            max_attempts: 3
+          placement:
+            constraints:
+              - node.role == manager

@@ -1,0 +1,218 @@
+.desktop-nav {
+    @include h5;
+
+    @include fading(0.3s);
+
+    &__icon {
+        max-height: 4.6rem;
+        width: auto;
+
+        @media screen and (max-width: $xl) {
+            max-height: 4rem;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        @media (min-width: $md) and (max-width: $xl) {
+            flex-direction: column;
+            align-items: flex-start;
+            display: none;
+
+            &_opened {
+                display: flex;
+            }
+        }
+
+        @media (max-width: $md) {
+            flex-direction: column;
+            align-items: flex-start;
+            display: none;
+
+            &_opened {
+                display: flex;
+            }
+        }
+    }
+
+    &__toggler {
+        display: none;
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        border-top: 1px solid transparent;
+
+
+
+        & span {
+            width: 2.4rem;
+            height: 0.2rem;
+            background-color: $black;
+            display: block;
+            margin-top: 6px;
+
+            transform-origin: 50% 50%;
+
+            @include beautyTransition;
+
+
+            &:first-child {
+                transform-origin: 0% 0%;
+
+                .opened & {
+                    transform: translate(0.2rem, 0.1rem) rotate(45deg);
+                }
+
+
+            }
+
+            &:nth-child(2) {
+                transform-origin: 50% 50%;
+
+                .opened & {
+                    transform: scale(0.2, 0.2);
+                    opacity: 0;
+                }
+            }
+
+            &:last-child {
+                transform-origin: 0% 100%;
+
+                .opened & {
+                    transform: translate(0.2rem, 0.1rem) rotate(-45deg);
+                }
+            }
+        }
+
+        @media screen and (max-width: $xl) {
+            display: block;
+        }
+    }
+
+    &__item {
+        list-style-type: none;
+    }
+
+    &__link {
+        color: $black;
+        text-decoration: none;
+    }
+}
+
+.mobile-nav {
+    @include h3;
+    overflow: hidden;
+    margin-bottom: 0;
+
+
+    &__icon {
+        max-height: 4.6rem;
+        width: auto;
+
+        @media screen and (max-width: $xl) {
+            max-height: 4rem;
+        }
+    }
+
+    &__menu {
+        flex-direction: column;
+
+        justify-content: space-around;
+        align-items: center;
+
+
+        overflow: hidden;
+        visibility: hidden;
+        @include beautyTransition;
+        transform-origin: (0% 0%);
+        transform: scaleY(0);
+        background-color: $light;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        padding-top: 3.2rem;
+        padding-left: 4.8rem;
+
+
+
+        &_opened {
+            visibility: visible;
+            transform: scaleY(1);
+            z-index: 2;
+        }
+
+        @media screen and (max-height: $md) {
+            height: 100%;
+        }
+
+    }
+
+    &__toggler {
+        display: none;
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        border-top: 1px solid transparent;
+
+
+
+        & span {
+            width: 2.4rem;
+            height: 0.2rem;
+            background-color: $black;
+            display: block;
+            margin-top: 6px;
+
+            transform-origin: 50% 50%;
+
+            @include beautyTransition;
+
+
+            &:first-child {
+                transform-origin: 0% 0%;
+
+                .opened & {
+                    transform: translate(0.2rem, 0.1rem) rotate(45deg);
+                }
+
+
+            }
+
+            &:nth-child(2) {
+                transform-origin: 50% 50%;
+
+                .opened & {
+                    transform: scale(0.2, 0.2);
+                    opacity: 0;
+                }
+            }
+
+            &:last-child {
+                transform-origin: 0% 100%;
+
+                .opened & {
+                    transform: translate(0.2rem, 0.1rem) rotate(-45deg);
+                }
+            }
+        }
+
+        @media screen and (max-width: $xl) {
+            display: block;
+        }
+    }
+
+    &__item {
+        list-style-type: none;
+        margin-bottom: 2.4rem;
+    }
+
+    &__link {
+        color: $black;
+        text-decoration: none;
+    }
+}

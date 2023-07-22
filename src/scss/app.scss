@@ -1,0 +1,25 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins.scss';
+
+@import 'vendors/bootstrap-grid.min.scss';
+//@import 'layout/_grid';
+//@import 'abstracts/functions';
+
+@import 'base/reset';
+@import 'base/_typography';
+@import 'base/_globals.scss';
+@import 'base/_utilities';
+
+@import 'components/mini-info-card.scss';
+
+
+@import 'layout/_header';
+@import 'layout/_main';
+
+
+@import 'components/button.scss';
+
+@import 'components/card-section.scss';
+@import 'components/phone-card.scss';
+@import 'layout/_footer';
+@import 'components/nav.scss';

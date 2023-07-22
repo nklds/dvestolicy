@@ -1,0 +1,69 @@
+/* heading text */
+@mixin h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 6.4rem;
+
+    @media screen and (max-width: $md) {
+        font-size: 3.2rem;
+        line-height: 4rem;
+    }
+}
+
+/* l text */
+@mixin h2 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 4rem;
+}
+
+/* m text */
+@mixin h3 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    margin-bottom: 3.2rem;
+}
+
+/* ms text */
+@mixin h4 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 3.2rem;
+}
+
+/* s text */
+@mixin h5 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+}
+
+/* xs text */
+@mixin h6 {
+    //font-family: 'Manrope';
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    /* identical to box height, or 167% */
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.h2 {
+    @include h2;
+}
+
+.h3 {
+    @include h3;
+}

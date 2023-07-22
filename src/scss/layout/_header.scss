@@ -1,0 +1,73 @@
+ .toggler__container {
+     @media screen and (min-width: $xl) {
+         display: none;
+     }
+
+     padding-top: 7px;
+ }
+
+
+ .main-header {
+
+     padding-left: 1.6rem;
+     padding-right: 1.6rem;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: flex-start;
+     position: relative;
+
+     &__fixed-container {
+         position: relative;
+     }
+
+     @media screen and (min-width: $md) {
+         padding-left: 4.8rem;
+         padding-right: 4.8rem;
+
+     }
+
+     @media screen and (min-width: $xl) {
+         padding-left: 10.8rem;
+         padding-right: 10.8rem;
+
+     }
+
+     margin-left: auto;
+     margin-right: auto;
+     max-width: $xl;
+     background-color: $light;
+     min-height: 10.4rem;
+     display: flex;
+
+
+     @media screen and (max-width: $xl) {
+         min-height: 6.4rem;
+     }
+
+
+
+     & .row {
+         align-items: center;
+         width: 100%;
+     }
+
+     &__logo {
+         text-align: right;
+         max-height: 4rem;
+         @include fading;
+
+         @media screen and (min-width: $md) {
+             text-align: left;
+         }
+
+         @media screen and (min-width: $xl) {
+             max-height: 4.6rem;
+         }
+     }
+
+     &__phone-card {
+         @include fading(0.6s);
+         text-align: right;
+     }
+ }

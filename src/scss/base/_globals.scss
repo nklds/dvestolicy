@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 0.625rem;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+    color: $textColor;
+    background-color: #CACACA;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    @include h4;
+    position: relative;
+}
+
+h1,
+h2 {
+    @include h1;
+    color: $white;
+}

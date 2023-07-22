@@ -1,0 +1,71 @@
+/* 12 parts like bootstrap */
+@mixin container {
+    max-width: $containerLength;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin row ($cgap: $gap) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: calc(-1 * #{$cgap} / 2);
+    margin-right: calc(-1 * #{$cgap} / 2);
+}
+
+@mixin cols($cgap: $gap) {
+    width: 100%;
+
+    /*
+    &:not(:first) {
+        margin-left: calc(#{$cgap} / 2);
+        //margin-top: #{$cgap};
+    }
+
+    &:not(:last) {
+        margin-right: calc(#{$cgap} / 2);
+
+    }
+
+    */
+
+
+}
+
+@mixin col-1 ($cgap: $gap) {
+    @include cols(#{$cgap});
+    max-width: calc((100% - #{$cgap}*11) / 12 * 1);
+}
+
+@mixin col-4 ($cgap: $gap) {
+    @include cols(#{$cgap});
+    max-width: calc((100% - #{$cgap}*11) / 12 * 4 + 3*#{$cgap});
+}
+
+@mixin col-8 ($cgap: $gap) {
+    @include cols;
+    max-width: calc((100% - #{$cgap}*11) / 12 * 8 + 7*#{$cgap});
+}
+
+@mixin col-6 ($cgap: $gap) {
+    @include cols;
+    max-width: calc((100% - #{$cgap}*11) / 12 * 6 + 5*#{$cgap} - 1px);
+}
+
+
+@mixin col-12 {
+    @include cols;
+    max-width: 100%;
+}
+
+@mixin col-md-6($cgap: $gap) {
+    @media screen and (min-width: $md) {
+        @include col-6(#{$cgap})
+    }
+}
+
+@mixin col-xl-4($cgap: $gap) {
+    @media screen and (min-width: $xl) {
+        @include col-4(#{$cgap})
+    }
+}
